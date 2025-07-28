@@ -2,135 +2,238 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vikas Chinagi | Personal Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vikas Chinagi | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
   <style>
+    :root {
+      --main-bg: #f4f4f4;
+      --main-color: #007bff;
+      --text-color: #333;
+      --section-bg: white;
+      --header-bg: #0d1b2a;
+    }
+
+    body.dark {
+      --main-bg: #121212;
+      --main-color: #00bcd4;
+      --text-color: #eee;
+      --section-bg: #1e1e1e;
+      --header-bg: #0d1b2a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #333;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--text-color);
+      background-image: url("https://img.freepik.com/premium-photo/coding-illustration-background_826849-5459.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
     }
-    .container {
-      width: 80%;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-    }
-    header,
-    footer {
-      background: #333;
-      color: #fff;
+
+    header {
+      background: var(--header-bg);
+      color: white;
       text-align: center;
-      padding: 20px 0;
+      padding: 40px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
     }
+
+    header h1 {
+      font-size: 2.5em;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background: white;
+      color: #007bff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .section {
+      background-color: var(--section-bg);
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .section:hover {
+      box-shadow: 0 0 20px rgba(0,255,255,0.6),
+                  0 0 30px rgba(255,0,255,0.4),
+                  0 0 40px rgba(0,255,0,0.4);
+      transform: translateY(-5px);
+    }
+
     h2 {
-      color: #444;
+      margin-bottom: 15px;
+      color: var(--main-color);
     }
+
     a {
-      color: #0066cc;
+      color: var(--main-color);
       text-decoration: none;
     }
-    .section {
-      margin-bottom: 30px;
+
+    a:hover {
+      text-decoration: underline;
     }
+
     .download-resume {
       display: inline-block;
-      background-color: #007bff;
+      background-color: var(--main-color);
       color: #fff;
       padding: 10px 20px;
-      margin-top: 15px;
       border-radius: 5px;
-      text-decoration: none;
       font-weight: bold;
+      margin-top: 15px;
+      transition: 0.3s;
     }
+
     .download-resume:hover {
       background-color: #0056b3;
-      text-decoration: none;
+      transform: scale(1.05);
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: var(--header-bg);
+      color: white;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .theme-toggle {
+        top: 15px;
+        right: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
     <h1>Vikas Chinagi</h1>
     <p>BCA Student | Web Developer | Data Analyst</p>
-    <p>
-      <a href="Vikas_Chinagi_Resume_Updated.docx" class="download-resume" target="_blank">Download My Resume</a>
-    </p>
+    <p><a href="Vikas_Chinagi_Resume_Updated.docx" class="download-resume" target="_blank"><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a></p>
   </header>
 
   <div class="container">
-    <div class="section">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:vchinagi@gmail.com">vchinagi@gmail.com</a></p>
-      <p>Phone: 7204238397</p>
-      <p>Location: Haliyal, Karnataka</p>
-      <p>GitHub: <a href="https://github.com/Vikaschinagi" target="_blank">https://github.com/Vikaschinagi</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/vikaschinagi" target="_blank">https://www.linkedin.com/in/vikaschinagi</a></p>
+
+    <div class="section" data-aos="fade-up">
+      <h2>📞 Contact</h2>
+      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:vchinagi@gmail.com">vchinagi@gmail.com</a></p>
+      <p><i class="fa-solid fa-phone"></i> 7204238397</p>
+      <p><i class="fa-solid fa-location-dot"></i> Haliyal, Karnataka</p>
+      <p><i class="fa-brands fa-github"></i> <a href="https://github.com/Vikaschinagi" target="_blank">github.com/Vikaschinagi</a></p>
+      <p><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/vikaschinagi" target="_blank">linkedin.com/in/vikaschinagi</a></p>
+      <p><i class="fa-brands fa-android"></i> <a href="https://apna.co/profile/vikas-ramesh-chinagi" target="_blank">apna.co/profile/vikas-ramesh-chinagi</a></p>
     </div>
 
-    <div class="section">
-      <h2>Professional Summary</h2>
-      <p>
-        Motivated and detail-oriented BCA student (graduating in 2025) with a passion for web development, data analysis, and AI/ML. Experienced in developing a house price prediction system using Python and machine learning libraries. Proficient in front-end technologies (HTML, UI/UX) and backend scripting (PHP, Java). Eager to apply skills in real-world projects and open to entry-level opportunities or internships.
-      </p>
+    <div class="section" data-aos="zoom-in-up">
+      <h2>🧠 Professional Summary</h2>
+      <p>Motivated and detail-oriented BCA student (graduating 2025) passionate about Web Development, Data Analysis, and AI/ML. Experienced in developing ML models and full-stack projects. Strong foundation in front-end, back-end, and model deployment.</p>
     </div>
 
-    <div class="section">
-      <h2>Education</h2>
-      <p><strong>Bachelor of Computer Applications (BCA)</strong><br />
-        Karnataka Law Society, Haliyal<br />
-        CGPA: 7.5 | Expected Graduation: 2025</p>
+    <div class="section" data-aos="fade-left">
+      <h2>🎓 Education</h2>
+      <p><strong>BCA - Karnataka Law Society, Haliyal</strong><br/>CGPA: 7.5 | Expected Graduation: 2025</p>
     </div>
 
-    <div class="section">
-      <h2>Projects</h2>
-      <h3>🏠 House Price Prediction System</h3>
+    <div class="section" data-aos="fade-right">
+      <h2>💼 Projects</h2>
+      <h3>🏠 House Price Prediction</h3>
       <ul>
-        <li>Built a machine learning model to estimate house prices based on multiple input features.</li>
-        <li>Performed data preprocessing, algorithm selection, and model evaluation.</li>
+        <li>Built regression-based ML model for price prediction.</li>
+        <li>Used preprocessing, data visualization, and algorithm tuning.</li>
         <li><strong>Tech Stack:</strong> Python, scikit-learn, Pandas, Matplotlib</li>
       </ul>
     </div>
 
-    <div class="section">
-      <h2>Certifications</h2>
+    <div class="section" data-aos="fade-up">
+      <h2>📜 Certifications</h2>
       <ul>
-        <li><strong>Cybersecurity</strong> – Tech Mahindra Foundation (Jul 20, 2025) – <a href="https://api-fe.skillindiadigital.gov.in/api/registry-course/getCertificatePresignedUrl/2025071189222233-9390e20a-9cac-48f7-9fb4-35eddca4aeae">View Certificate</a></li>
-        <li><strong>AI for Entrepreneurship</strong> – Intel Technology India (Jul 17, 2025) – <a href="https://api-fe.skillindiadigital.gov.in/api/registry-course/getCertificatePresignedUrl/2025071189222233-92a840f2-c85f-4bf8-97b4-8de2d5b931fd">View Certificate</a></li>
-        <li><strong>Getting Started with Agentic AI</strong> – Great Learning (Jul 14, 2025) – <a href="https://www.mygreatlearning.com/certificate/AJPFMYSJ">View Certificate</a></li>
-        <li><strong>AI Certificate 1</strong> – hp Life Global – <a href="https://www.life-global.org/certificate/28fb1059-54f1-48b6-bc93-8a6cb7047420" target="_blank">View Certificate</a></li>
-        <li><strong>AI Certificate 2</strong> – hp Life Global – <a href="https://www.life-global.org/certificate/f179e735-fc14-41fe-bf44-52346a5b197c" target="_blank">View Certificate</a></li>
-        <li><strong>AI Certificate 3</strong> – hp Life Global – <a href="https://www.life-global.org/certificate/d3173e36-2cd4-4eee-8311-49e2acd02783" target="_blank">View Certificate</a></li>
+        <li>Cybersecurity – Tech Mahindra – <a href="#">View</a></li>
+        <li>AI for Entrepreneurship – Intel – <a href="#">View</a></li>
+        <li>Agentic AI – Great Learning – <a href="#">View</a></li>
+        <li>AI Certificates – HP Life – <a href="#">View All</a></li>
       </ul>
     </div>
 
-    <div class="section">
-      <h2>Technical Skills</h2>
+    <div class="section" data-aos="zoom-in">
+      <h2>🛠️ Technical Skills</h2>
       <ul>
-        <li>Languages: Python, Java, PHP, HTML</li>
-        <li>Libraries/Tools: scikit-learn, Pandas, Matplotlib</li>
-        <li>Web Design: UI & UX</li>
-        <li>Others: Video Editing</li>
+        <li><strong>Languages:</strong> Python, Java, PHP, HTML, CSS</li>
+        <li><strong>Libraries/Tools:</strong> scikit-learn, Pandas, Matplotlib</li>
+        <li><strong>Design:</strong> UI/UX Design</li>
+        <li><strong>Others:</strong> Git, VS Code, Video Editing</li>
       </ul>
     </div>
 
-    <div class="section">
-      <h2>Experience</h2>
-      <p><strong>Fresher</strong> – Actively seeking internship or entry-level opportunities in Web Development, Data Analysis, or AI/ML.</p>
+    <div class="section" data-aos="fade-down">
+      <h2>💼 Experience</h2>
+      <p>Fresher – Open to internships and entry-level roles in development, analytics, or ML.</p>
     </div>
 
-    <div class="section">
-      <h2>Hobbies</h2>
+    <div class="section" data-aos="flip-up">
+      <h2>🎯 Hobbies</h2>
       <ul>
-        <li>Video Editing</li>
-        <li>Gardening</li>
+        <li>🎥 Video Editing</li>
+        <li>🌱 Gardening</li>
       </ul>
     </div>
+
   </div>
 
   <footer>
     <p>&copy; 2025 Vikas Chinagi. All rights reserved.</p>
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+
 </body>
 </html>
